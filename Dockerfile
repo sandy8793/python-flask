@@ -8,11 +8,10 @@ Maintainer "bhogilesaudagar@gmail.com"
 WORKDIR /app
 
 # Copy the Python application files into the container
-COPY src /app/src
 COPY requirements.txt /app/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Command to run the Python application
-CMD ["python", "src/my_python_app.py"]
+CMD ["python", "app.py"]
