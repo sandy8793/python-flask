@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  java-app:
+  webapp:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: dockerfile.java
     ports:
       - "8080:8080"
     volumes:
@@ -12,15 +12,15 @@ services:
     networks:
       - my_network
 
-  python-app:
+  python-flask:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile.python
     ports:
       - "5000:5000"
     volumes:
       - ./requirements.txt:/app/requirements.txt
-      - ./data:/data
+      - ./app:/data
     networks:
       - my_network
     command: ["python", "app.py"]
